@@ -1,7 +1,68 @@
+#######################################################
+#																																	#
+#									Mp3 and Mp4 Downloader												#
+#												Version 1.3																#
+#																																	#
+# Author: Vaksin																										#
+# Copyright © 2016 All Rights Reserved.																#
+#######################################################
+#																																	#
+# ############																									#
+# REQUIREMENTS																									#
+# ############																									#
+#  "youtube-dl" and "ffmpeg" package installed.												#
+#																																#
+# ##########																										#
+# CHANGELOG																										#
+###########																										#
+# 1.0																														  #
+# -Enable or Disable the script.			(For Owner)										   #
+# -Clear all file in folder.						(For Owner)											#
+# -Check mp3 or mp4 file in folder.	 (For Owner)							        		#
+# 1.1																															#
+# -Error message now with full reply.																	#
+# -Fixed some bugs.																								#
+# 1.2																															#
+# -Added block and unblock commands for owner.											#
+# -Fixed bug.																											#
+# 1.3																														 #
+# -Modified commands. Now you can use <botnick command>					#
+#  Example: "mp3 on" or 'mp3 block nick"														  #
+#  (Please see bot help. Type .help in channel.)												#
+#																																#
+# #######																												#
+# CONTACT																												#
+# #######																												#
+#  If you have any suggestions, comments, questions or report bugs,			#
+#  you can find me on IRC @ForumCerdas Network											#
+#																																	#
+#  /server irc.forumcerdas.net:6667   Nick: Vaksin											#
+#																																	#
+######################################################
 setudef flag mp3
-set tube(rest) 50 
-set linkdl "http://92.222.91.115/~v/" 
-set path "/home/v"
+
+###############################################################################
+### Settings ###
+###############################################################################
+
+# This is antiflood trigger, set how long you want (time in second)
+set tube(rest) 50
+
+# This is link for download the mp3 or mp4 file.
+set linkdl "http://your.link/~user/"
+
+# This is your public_html folder patch
+set path "/home/vaksin"
+
+###############################################################################
+### End of Settings ###
+###############################################################################
+
+###############################################################################
+#
+#      DON'T CHANGE ANYTHING BELOW
+#
+###############################################################################
 bind pub - .mp3 mptiga
 bind pub - .mp4 mpempat
 bind pub - clear delete_file
@@ -56,7 +117,7 @@ proc pub_gett {nick host hand chan text } {
     close $fp
     set ukuran [file size "$path/public_html/$judulbaru.mp4"]
     set besar [fixform $ukuran]
-   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp4 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by \002$ck\002"
+   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp4 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by\002 $author \002"
    puthelp "PRIVMSG $chan :Anda punya waktu 5 menit untuk download"
    timer 5 [list apus $chan $judulbaru]
    exec rm -f $path/eggdrop/a.txt
@@ -87,7 +148,7 @@ proc pub_getlinkk {nick host hand chan text } {
     close $fp
     set ukuran [file size "$path/public_html/$judulbaru.mp4"]
     set besar [fixform $ukuran]
-   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp4 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by \002$ck\002"
+   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp4 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by\002 $author \002"
    puthelp "PRIVMSG $chan :Anda punya waktu 5 menit untuk download"
    timer 5 [list apus $chan $judulbaru]
    exec rm -f $path/eggdrop/a.txt
@@ -140,7 +201,7 @@ proc pub_get {nick host hand chan text } {
     close $fp
     set ukuran [file size "$path/public_html/$judulbaru.mp3"]
     set besar [fixform $ukuran]
-   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp3 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by \002$ck\002"
+   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp3 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by\002 $author \002"
    puthelp "PRIVMSG $chan :Anda punya waktu 5 menit untuk download"
    timer 5 [list hapus $chan $judulbaru]
    exec rm -f $path/eggdrop/a.txt
@@ -170,7 +231,7 @@ proc pub_getylink {nick host hand chan text } {
     close $fp
     set ukuran [file size "$path/public_html/$judulbaru.mp3"]
     set besar [fixform $ukuran]
-   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp3 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by \002$ck\002"
+   puthelp "PRIVMSG $chan :Link Download: $linkdl$judulbaru.mp3 \[Size: \002$besar\002\] \[Durasi: \002$durasi menit\002\] \00304®\003 Presented by\002 $author \002"
    puthelp "PRIVMSG $chan :Anda punya waktu 5 menit untuk download"
    timer 5 [list hapus $chan $judulbaru]
    exec rm -f $path/eggdrop/a.txt
@@ -297,4 +358,4 @@ proc fixform n {
     }
     return Inf
  }
-set author "Vaksin@ForumCerdas.net"
+set author [decrypt 64 "5qIUj.M1Ufm.RV0zE.rG4xn/K2b4z.w4QJK0 "]
