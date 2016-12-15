@@ -95,7 +95,7 @@ proc mpempat { nick host hand chan text } {
 proc pub_gett {nick host hand chan text } {
 	global path linkdl author
 	if {![string match *[decrypt 64 "eXjyh.jVjlb.EoJZq.XxCnP0"]* [string tolower $author]] || ![string match *[decrypt 64 "lJw/D/4EEJV1"]* [string tolower $author]]} {
-		puthelp "PRIVMSG $chan :ERROR!!! Anda telah merubah Author"
+		puthelp "PRIVMSG $chan :ERROR!!!"
 		return 0
 	}
 	putquick "PRIVMSG $chan :Mohon tunggu..."
@@ -126,7 +126,7 @@ proc pub_gett {nick host hand chan text } {
 proc pub_getlinkk {nick host hand chan text } {
 	global path linkdl author
 	if {![string match *[decrypt 64 "eXjyh.jVjlb.EoJZq.XxCnP0"]* [string tolower $author]] || ![string match *[decrypt 64 "lJw/D/4EEJV1"]* [string tolower $author]]} {
-		puthelp "PRIVMSG $chan :ERROR!!! Anda telah merubah Author"
+		puthelp "PRIVMSG $chan :ERROR!!!"
 		return 0
 	}
 	putquick "PRIVMSG $chan :Mohon tunggu..."
@@ -179,7 +179,7 @@ proc mptiga { nick host hand chan text } {
 proc pub_get {nick host hand chan text } {
 	global path linkdl author
 	if {![string match *[decrypt 64 "eXjyh.jVjlb.EoJZq.XxCnP0"]* [string tolower $author]] || ![string match *[decrypt 64 "lJw/D/4EEJV1"]* [string tolower $author]]} {
-		puthelp "PRIVMSG $chan :ERROR!!! Anda telah merubah Author"
+		puthelp "PRIVMSG $chan :ERROR!!!"
 		return 0
 	}
 	putquick "PRIVMSG $chan :Mohon tunggu..."
@@ -209,7 +209,7 @@ proc pub_get {nick host hand chan text } {
 proc pub_getylink {nick host hand chan text } {
 	global path linkdl author
 	if {![string match *[decrypt 64 "eXjyh.jVjlb.EoJZq.XxCnP0"]* [string tolower $author]] || ![string match *[decrypt 64 "lJw/D/4EEJV1"]* [string tolower $author]]} {
-		puthelp "PRIVMSG $chan :ERROR!!! Anda telah merubah Author"
+		puthelp "PRIVMSG $chan :ERROR!!!"
 		return 0
 	}
 	putquick "PRIVMSG $chan :Mohon tunggu..."
